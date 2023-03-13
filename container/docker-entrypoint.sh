@@ -2,6 +2,6 @@
 
 ########################################################################################################################
 
-java -server -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom -jar /ownvault/OwnVaultServer.jar
+java -Xms25m -Xmx50m -server -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom -jar /ownvault/OwnVaultServer.jar
 
 ########################################################################################################################
