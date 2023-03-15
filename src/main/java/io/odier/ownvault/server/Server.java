@@ -5,14 +5,8 @@ import java.net.*;
 import java.nio.channels.*;
 import java.lang.reflect.*;
 
-import org.slf4j.*;
-
 public class Server
 {
-	/*----------------------------------------------------------------------------------------------------------------*/
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(Server.class);
-
 	/*----------------------------------------------------------------------------------------------------------------*/
 
 	private static final String ENDPOINT = "https://ownvault.odier.io/repo/latest/OwnVaultAPI.jar";
@@ -86,7 +80,7 @@ public class Server
 		}
 		catch(Exception e)
 		{
-			LOGGER.error(e.getMessage());
+			System.err.println(e.getMessage());
 
 			return 1;
 		}
