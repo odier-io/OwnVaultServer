@@ -50,19 +50,19 @@ public class Server
 		try
 		{
 			/*--------------------------------------------------------------------------------------------------------*/
-			/* DOWNLOAD THE OWNVAULT SERVER                                                                           */
+			/* DOWNLOAD THE OWNVAULT API                                                                              */
 			/*--------------------------------------------------------------------------------------------------------*/
 
 			File file = download(new File(this.getPath(), "OwnVaultAPI.jar"), new URL(JAR_URL));
 
 			/*--------------------------------------------------------------------------------------------------------*/
-			/* LOAD THE OWNVAULT SERVER                                                                               */
+			/* LOAD THE OWNVAULT API                                                                                  */
 			/*--------------------------------------------------------------------------------------------------------*/
 
 			ClassLoader classLoader = new URLClassLoader(new URL[] {file.toURI().toURL()}, this.getClass().getClassLoader());
 
 			/*--------------------------------------------------------------------------------------------------------*/
-			/* RUN THE OWNVAULT SERVER                                                                                */
+			/* RUN THE OWNVAULT API                                                                                   */
 			/*--------------------------------------------------------------------------------------------------------*/
 
 			Class<?> Server = Class.forName("io.odier.ownvault.api.Server", true, classLoader);
