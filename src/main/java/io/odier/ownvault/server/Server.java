@@ -3,13 +3,12 @@ package io.odier.ownvault.server;
 import java.io.*;
 import java.net.*;
 import java.nio.channels.*;
-import java.lang.reflect.*;
 
 public class Server
 {
 	/*----------------------------------------------------------------------------------------------------------------*/
 
-	private static final String ENDPOINT = "https://ownvault.odier.io/repo/latest/OwnVaultAPI.jar";
+	private static final String JAR_URL = "https://ownvault.odier.io/repo/latest/OwnVaultAPI.jar";
 
 	/*----------------------------------------------------------------------------------------------------------------*/
 
@@ -54,7 +53,7 @@ public class Server
 			/* DOWNLOAD THE OWNVAULT SERVER                                                                           */
 			/*--------------------------------------------------------------------------------------------------------*/
 
-			File file = download(new File(this.getPath(), "OwnVaultAPI.jar"), new URL(ENDPOINT));
+			File file = download(new File(this.getPath(), "OwnVaultAPI.jar"), new URL(JAR_URL));
 
 			/*--------------------------------------------------------------------------------------------------------*/
 			/* LOAD THE OWNVAULT SERVER                                                                               */
@@ -70,11 +69,10 @@ public class Server
 
 			/*--------------------------------------------------------------------------------------------------------*/
 
-			Object server = Server.getDeclaredConstructor().newInstance();
-
-			Method method = Server.getMethod("run", String[].class);
-
-			return (int) method.invoke(server, new Object[] {args});
+			return (int) Server.getMethod("run", String[].class).invoke(
+				Server.getDeclaredConstructor().newInstance(),
+				new Object[] {args}
+			);
 
 			/*--------------------------------------------------------------------------------------------------------*/
 		}
